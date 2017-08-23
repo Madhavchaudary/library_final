@@ -2,7 +2,7 @@
 import socket
 import sys
 import time
-readerIP = "192.168.240.131"
+readerIP = "xx.xx.xx.xx"
 readerPort = 100
 #connect to rfid reader
 def connect(readerIP, readerPort):
