@@ -1,0 +1,73 @@
+#patron {
+  -webkit-border-radius: 12;
+  -moz-border-radius: 12;
+  border-radius: 6px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  background: #3498db;
+  padding: 10px 20px 10px 20px;
+  border: solid #080b0d 5px;
+  text-decoration: none;
+}
+#patron:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+#book {
+  -webkit-border-radius: 12;
+  -moz-border-radius: 12;
+  border-radius: 6px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  background: #3498db;
+  padding: 10px 20px 10px 20px;
+  border: solid #080b0d 5px;
+  text-decoration: none;
+}
+#book:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+#read {
+  -webkit-border-radius: 12;
+  -moz-border-radius: 12;
+  border-radius: 6px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  background: #3498db;
+  padding: 10px 20px 10px 20px;
+  border: solid #080b0d 5px;
+  text-decoration: none;
+}
+#read:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+
+* {
+  text-align: center;
+}
+.sidebar{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+#listelements {
+  float: left;
+  color: white;
+}
+#listelements a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+#listelements a:hover {
+  background-color: #111111;
+}

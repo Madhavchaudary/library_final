@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block title %}<title>NITC Central Library</title>{% endblock %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+	{% csrf_token %}
+	<ul class="sidebar" >
+		<li id="listelements" style="float:left"><a href="#">NITC CENTRAL LIBRARY</a></li>
+		{% if user.is_authenticated %}
+			<li id="listelements" style="float:right;"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+			<li id="listelements" style="float:right;"><a href="#">User: {{ user.get_username }}</a></li>
+		{% else %}
+			<li id="listelements" style="float:right;"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+	{% endif %}
+	</ul>
+<form method="POST" action="" >
+	{% csrf_token %}
+	<br>
+	<br>
+	<h4>{{myForm.as_table}}</h4>
+	<br>
+	<br>
+	<input type="submit" value="PATRON WRITE" name="_PatronWrite" id="patron">
+	<input type="submit" value="BOOK WRITE" name="_BookWrite" id="book">
+	<input type="submit" value="READ" name="_Read" id="read">
+</form>
+{% if messages %}
+	<ul class="messages">
+	{% for message in messages %}
+		<li  {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	{% endfor %}
+	</ul>
+{% endif %}
+</body>
+</html>

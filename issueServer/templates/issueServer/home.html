@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<html>
+<head>
+	<title>HOME</title>
+	<link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+</head>
+<body>
+	{% csrf_token %}
+	<div id="content">
+		<h1>NITC CENTRAL LIBRARY</h1>
+		<div class="table">
+			<ul id="buttons">
+				<li><a href="http://192.168.240.94/admin/">ADMIN INTERFACE</a></li>
+				<li><a href="http://192.168.240.94/forms/">READ/WRITE</a></li>
+				<li><a href="#">GATE FAILURES</a></li>
+			</ul>
+		</div>
+</body>
+</html>
