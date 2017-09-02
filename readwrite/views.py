@@ -6,11 +6,11 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-
 from .forms import ReadWriteForm, UserLogInForm
 from .write import writeData, readData, patronWrite
 from .models import DeviceAndClientIp
 a = ""
+
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:

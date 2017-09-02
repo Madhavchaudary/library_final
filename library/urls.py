@@ -13,5 +13,4 @@ urlpatterns = [
     url(r'^readwrite/$', readWriteView, name='readwrite'),
     url(r'^login/$', userLoginView, name='login'),
     url(r'^logout/$', userLogoutView, name='logout')
-    
 ]
