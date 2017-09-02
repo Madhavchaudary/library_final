@@ -1,3 +1,4 @@
+
 #patron {
   -webkit-border-radius: 12;
   -moz-border-radius: 12;
@@ -10,10 +11,12 @@
   border: solid #080b0d 5px;
   text-decoration: none;
 }
+
 #patron:hover {
   background: #3cb0fd;
   text-decoration: none;
 }
+
 #book {
   -webkit-border-radius: 12;
   -moz-border-radius: 12;
@@ -26,10 +29,12 @@
   border: solid #080b0d 5px;
   text-decoration: none;
 }
+
 #book:hover {
   background: #3cb0fd;
   text-decoration: none;
 }
+
 #read {
   -webkit-border-radius: 12;
   -moz-border-radius: 12;
@@ -42,32 +47,13 @@
   border: solid #080b0d 5px;
   text-decoration: none;
 }
+
 #read:hover {
   background: #3cb0fd;
   text-decoration: none;
 }
 
 * {
-  text-align: center;
+    text-align: center;
 }
-.sidebar{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333333;
-}
-#listelements {
-  float: left;
-  color: white;
-}
-#listelements a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 16px;
-  text-decoration: none;
-}
-#listelements a:hover {
-  background-color: #111111;
-}
+
