@@ -158,10 +158,11 @@ def getPatronIDAndBooksList(readerIP, readerPort):
 
 
 def Checkout(ReaderIP,ReaderPort):
-	rfid_data = ''
-	rfid_data = getPatronIDAndBooksList(ReaderIP,ReaderPort)
-#	db = MySQLdb.connect(constants.SQLHost, constants.SQLUser, constants.SQLPass, constants.SQLDB)
-	try:	
+	
+	try:
+		rfid_data = ''
+		rfid_data = getPatronIDAndBooksList(ReaderIP,ReaderPort)	
+#		db = MySQLdb.connect(constants.SQLHost, constants.SQLUser, constants.SQLPass, constants.SQLDB)
 		cardnumber = rfid_data['patron']	
 		#cursor = db.cursor()
 		#cursor.execute("""SELECT borrowernumber from borrowers WHERE cardnumber= %s""",(cardnumber,))
