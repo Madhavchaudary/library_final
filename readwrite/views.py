@@ -44,7 +44,7 @@ def userLoginView(request, *args, **kwargs):
         username_ = form.cleaned_data.get('username')
         user_obj = User.objects.get(username__iexact=username_)
         login(request, user_obj)
-        print "logged in"
+        print ("logged in")
         return HttpResponseRedirect("/readwrite")
     return render(request, "accounts/login.html", {"form": form})
 def userLogoutView(request):
