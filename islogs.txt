@@ -1,0 +1,36 @@
+15:9:2017   16:13:35
+In function: Checkin
+local variable 'ex' referenced before assignment
+__________________________________________________
+15:9:2017   16:15:39
+In function: Checkin
+local variable 'ex' referenced before assignment
+__________________________________________________
+15:9:2017   16:15:39
+In function: Checkout
+local variable 'ex' referenced before assignment
+__________________________________________________
+15:9:2017   16:16:46
+In function: getData
+[Errno 113] No route to host
+__________________________________________________
+15:9:2017   16:16:46
+In function: Checkout
+NetworkError: Socket creation failed.
+__________________________________________________
+15:9:2017   16:17:17
+In function: getData
+[Errno 113] No route to host
+__________________________________________________
+15:9:2017   16:17:17
+In function: Checkout
+NetworkError: Socket creation failed.
+__________________________________________________
+15:9:2017   16:17:17
+In function: getData
+[Errno 113] No route to host
+__________________________________________________
+15:9:2017   16:17:17
+In function: Checkin
+NetworkError: Socket creation failed.
+__________________________________________________

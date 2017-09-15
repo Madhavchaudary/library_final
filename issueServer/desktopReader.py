@@ -1,12 +1,14 @@
 import socket
-import struct
-import time
 import pymysql
+import inspect
+from .addLog import addLogFunc
 #from . import constants
 commands = 	{	'multiTagInventory': bytearray([10, 255, 2, 128, 117]), 
 				'getTagData': bytearray([10, 255, 3, 65, 16, 163])
 			}
 
+def whoami():
+    return inspect.stack()[1][3]
 
 def sendCommand(cmd,ReaderIP, ReaderPort,s):
 	s.send(cmd)
@@ -19,7 +21,8 @@ def getData(ReaderIP, ReaderPort):
 	try:
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.SOL_TCP)
 		s.connect((ReaderIP, ReaderPort))
-	except:
+	except Exception as ex:
+		addLogFunc(whoami(),str(ex))
 		raise Exception('NetworkError: Socket creation failed.')
 	try:	
 		patron = ''
@@ -48,8 +51,8 @@ def getData(ReaderIP, ReaderPort):
 		s.close()
 		return {'patron':patron, 'books':books}
 	except Exception as ex:
+		addLogFunc(whoami(),str(ex))
 		return ("One or more empty tags are present \n")
-		return ex
 
 def Checkout(ReaderIP,ReaderPort):
 	try:
@@ -63,7 +66,7 @@ def Checkout(ReaderIP,ReaderPort):
 		# db.close()
 		return rfid_data
 	except Exception as ex:
-		print(ex)
+		addLogFunc(whoami(),str(ex))
 		return "Some Error"
 
 def Checkin(ReaderIP,ReaderPort):
@@ -71,5 +74,6 @@ def Checkin(ReaderIP,ReaderPort):
 		rfid_data = ''
 		rfid_data = getData(ReaderIP, ReaderPort)['books']
 		return rfid_data
-	except:
+	except Exception as ex:
+		addLogFunc(whoami(),str(ex))
 		return "Some Error"

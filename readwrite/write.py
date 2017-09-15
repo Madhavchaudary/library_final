@@ -1,10 +1,16 @@
 import socket
+from .addLog import addLogFunc
+import inspect
+
+def whoami():
+    return inspect.stack()[1][3]
 def connect(readerIP,readerPort):
 	try:
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.SOL_TCP)
 		s.connect((readerIP, readerPort))
 		return s
-	except:
+	except Exception as ex:
+		addLogFunc(whoami(),str(ex))
 		return (0)
 # s = connect(readerIP,readerPort)
 def writeData(data, readerIP, readerPort):
@@ -26,6 +32,7 @@ def writeData(data, readerIP, readerPort):
 				print("Response: " + " ".join("%02x" % b for b in out))
 			return readData(readerIP, readerPort)
 		except Exception as ex:
+			addLogFunc(whoami(),str(ex))
 			output = "Exception: " + str(ex)
 			return (output)
 	else:
@@ -58,6 +65,7 @@ def readData(readerIP, readerPort):
 			out = ''.join([c if ord(c) != 0 else '' for c in out])
 			return (out)
 		except Exception as ex:
+			addLogFunc(whoami(),str(ex))
 			output = "Exception: " + str(ex)
 			return (output)
 	else:
@@ -88,6 +96,7 @@ def patronWrite(data1, readerIP, readerPort):
 				output = "PATRON WRITE NOT SUCCESSFUL"
 				return (output)
 		except Exception as ex:
+			addLogFunc(whoami(),str(ex))
 			output = "Exception: " + str(ex)+"\n"
 			return (output)
 	else:

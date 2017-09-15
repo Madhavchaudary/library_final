@@ -46,3 +46,24 @@ class UserLogInForm(forms.Form):
         if not the_user:
             raise forms.ValidationError("Invalid Credentials")
         return super(UserLogInForm, self).clean(*args,**kwargs)
+
+
+
+# class UserLogInForm(forms.ModelForm):
+#     username = forms.CharField(label='Username', widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Username'}),validators=[
+#         RegexValidator(
+#             regex=username_regex,
+#             message='Username must be alphanumberic containing +-*.',
+#             code= 'Invalid Username'
+#         )])
+#     password = forms.CharField(label='Password ', widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password'}))
+#     def clean(self, *args, **kwargs):
+#         username = self.cleaned_data.get("username")
+#         password = self.cleaned_data.get("password")
+#         the_user = authenticate(username=username, password=password)
+#         if not the_user:
+#             raise forms.ValidationError("Invalid Credentials")
+#         return super(UserLogInForm, self).clean(*args,**kwargs)
+#     class Meta:
+#         model = User
+#         fields = ['username','password']
