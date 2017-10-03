@@ -1,12 +1,49 @@
-<html>
-<head>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-</head>
 
-<h4>You must be logged in to see readwrite page</h4>
-<form method="POST">
+
+
+  {% load staticfiles %}
+
+  <!DOCTYPE html>
+  <html>
+
+  <head>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <title>Auth Demo</title>
+
+      <!-- Core CSS - Include with every page -->
+      <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+
+              
+
+    {% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+ <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+<form method="post" action="{% url 'login' %}">
 {% csrf_token %}
+<p class="bs-component">
 {% for field in form %}
     <div class="fieldWrapper">
         {{ field.errors }}
@@ -16,50 +53,33 @@
         {% endif %}
     </div>
 {% endfor %}
-<input type="submit" value="Submit">
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+
+
+
+</p>
+<p class="bs-component">
+<center><input class="btn btn-success btn-sm" type="submit" value="login" /></center>
+</p>
+<input type="hidden" name="next" value="{{ next }}" />
 </form>
-</html>
+</div>
+</div>
+</div>
+</div>
+</div>
 
+<script>
+{% if not user.is_authenticated %}
+$("ul.nav.navbar-nav.navbar-right").css("display","none");
+{% endif %}
+</script>
+      <!-- Core Scripts - Include with every page -->
+      <script src = "{% static 'js/jquery.min.js' %}"></script>
 
+      <script src = "{% static 'js/bootstrap.min.js' %}"></script>
+      {% block javascript %}
+      {% endblock %}
 
+  </body>
 
-
-<!-- 
-
-
-
-<html>
-    <head>
-        <title></title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Login to Read and Write</h1>
-            <div style="width:30%">
-                <form action="">
-                    {%csrf_token%}
-                    {% for error in form.non_field_errors %}
-                    <div class="form-group has-errors text-danger small">
-                        {{error}}
-                    </div>
-                    {% endfor %}
-                    {% for field in form %}
-                    <div class="form-group has-errors text-danger small">
-                        {{field.errors}}
-                    </div>
-                    <div class="form-group has-errors text-danger small">
-                    </div>
-                    <div class="form-group">
-                        {{field}}
-                    </div>
-                    {% endfor %}
-                    <button class="btn btn-primary" style="width:100%">Login</button>
-            </div>
-            </form>
-        </div>
-    </body>
-</html> -->
+  </html>
